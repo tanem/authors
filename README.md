@@ -34,11 +34,11 @@ $ authors > AUTHORS
 
 ### authors([options])
 
-Returns a `Promise` that will be resolved with a nicely formatted list of authors sorted alphabetically by author name. If an error occurs during execution, the `Promise` is rejected with an `Error` object.
+Returns a `Promise` that will be resolved with a list of authors sorted alphabetically by author name. If an error occurs during execution, the `Promise` is rejected with an `Error` object.
 
 **Arguments**
 
-- `options` - _Optional_ An object containing the optional arguments defined below. Defaults to {}.
+- `options` - _Optional_ An object containing the optional arguments defined below. Defaults to `{}`.
   - `isNumbered` - _Optional_ Sort the list by number of commits per author.
 
 **Example**
@@ -61,11 +61,11 @@ import authors from '@tanem/authors';
 
 ### authors.sync([options])
 
-Synchronously returns a nicely formatted list of authors sorted alphabetically by author name. If an error occurs during execution, an `Error` object will be thrown.
+Synchronously returns a list of authors sorted alphabetically by author name. If an error occurs during execution, an `Error` object will be thrown.
 
 **Arguments**
 
-- `options` - _Optional_ An object containing the optional arguments defined below. Defaults to {}.
+- `options` - _Optional_ An object containing the optional arguments defined below. Defaults to `{}`.
   - `isNumbered` - _Optional_ Sort the list by number of commits per author.
 
 **Example**

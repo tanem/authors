@@ -14,7 +14,7 @@ try {
     .description(description)
     .option('-n, --numbered', 'sort by number of commits per author');
 
-  program.on('--help', function() {
+  program.on('--help', () => {
     console.log(`
 Examples:
   $ authors
