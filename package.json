@@ -1,0 +1,68 @@
+{
+  "name": "@tanem/authors",
+  "version": "0.0.1",
+  "description": "Generates a list of authors in a format suitable for inclusion in an AUTHORS file.",
+  "author": "Tane Morgan (https://github.com/tanem)",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "authors": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/tanem/authors",
+  "bugs": "https://github.com/tanem/authors/issues",
+  "repository": "github:tanem/authors",
+  "keywords": [
+    "authors",
+    "git",
+    "javascript",
+    "node",
+    "script",
+    "shortlog",
+    "typescript"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "execa": "^2.0.3"
+  },
+  "devDependencies": {
+    "@tanem/github-changelog-generator": "1.0.2",
+    "@types/jest": "24.0.15",
+    "@types/node": "12.6.8",
+    "@typescript-eslint/eslint-plugin": "1.13.0",
+    "@typescript-eslint/parser": "1.13.0",
+    "codecov": "3.5.0",
+    "del": "5.0.0",
+    "del-cli": "2.0.0",
+    "eslint": "6.1.0",
+    "eslint-config-prettier": "6.0.0",
+    "jest": "24.8.0",
+    "make-dir": "3.0.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.18.2",
+    "ts-jest": "24.0.2",
+    "typescript": "3.5.3"
+  },
+  "scripts": {
+    "authors": "node dist/cli.js > AUTHORS",
+    "build": "run-s clean compile",
+    "changelog": "github-changelog-generator -f v$npm_package_version > CHANGELOG.md",
+    "check:format": "prettier --list-different \"**/*.{js,ts}\"",
+    "check:types": "tsc --noEmit",
+    "clean": "run-p clean:*",
+    "clean:coverage": "del coverage",
+    "clean:dist": "del dist",
+    "compile": "tsc -p tsconfig.base.json",
+    "format": "prettier --write \"**/*.{js,ts}\"",
+    "lint": "eslint .",
+    "postversion": "git push && git push --tags && npm publish --access=public",
+    "release": "npm version -m 'Release v%s'",
+    "test": "run-s check:* lint build test:*",
+    "test:cjs": "jest --config ./scripts/jest/config.cjs.js",
+    "test:src": "jest --config ./scripts/jest/config.src.js",
+    "version": "run-s test changelog authors && git add ."
+  }
+}
