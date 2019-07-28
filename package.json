@@ -29,7 +29,6 @@
     "execa": "^2.0.3"
   },
   "devDependencies": {
-    "@tanem/github-changelog-generator": "1.0.2",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",
     "@typescript-eslint/eslint-plugin": "1.13.0",
@@ -43,13 +42,15 @@
     "make-dir": "3.0.0",
     "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
+    "tanem-scripts": "1.0.2",
     "ts-jest": "24.0.2",
     "typescript": "3.5.3"
   },
   "scripts": {
-    "authors": "node dist/cli.js > AUTHORS",
+    "audit": "tanem-scripts audit",
+    "authors": "tanem-scripts authors",
     "build": "run-s clean compile",
-    "changelog": "github-changelog-generator -f v$npm_package_version > CHANGELOG.md",
+    "changelog": "tanem-scripts changelog",
     "check:format": "prettier --list-different \"**/*.{js,ts}\"",
     "check:types": "tsc --noEmit",
     "clean": "run-p clean:*",
